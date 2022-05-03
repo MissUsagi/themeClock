@@ -1,0 +1,170 @@
+@import url('https://fonts.googleapis.com/css?Hamily=Heebo:300&display=swap');
+
+*{
+   box-sizing: border-box;
+}
+
+:root {
+   --primary-color: #333;
+   --secondary-color: #fff;
+}
+
+html.dark {
+   --primary-color: #fff;
+   --secondary-color: #333;
+}
+html {
+   transition: all 0.5s ease-in;
+}
+
+html.dark {
+   background-color: #111;
+   color: var(--primary-color);
+}
+
+body {
+   font-family: 'Heebo', sans-serif;
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   height: 100vh;
+   overflow: hidden;
+   margin: 0;
+}
+
+.toggle {
+   cursor: pointer;
+   background-color: var(--primary-color);
+   color: var(--secondary-color);
+   border: 0;
+   border-radius: 4px;
+   padding: 8px 12px;
+   position: absolute;
+   top: 50px;
+}
+
+.clock-container {
+   display: flex;
+   flex-direction: column;
+   justify-content: space-between;
+   align-items: center;
+}
+
+.clock {
+   position: relative;
+   width: 200px;
+   height: 200px;
+}
+
+.needle {
+   background-color: var(--primary-color);
+   position: absolute;
+   top: 50%;
+   left: 50%;
+   height: 65px;
+   width: 3px;
+   transform-origin: bottom center;
+   /* transition: all 0.5s ease-in; */
+}
+
+.needle.hour {
+   transform: translate(-50%, -100%) rotate(30deg);
+}
+
+.needle.minute {
+   transform: translate(-50%, -100%) rotate(0deg);
+   height: 100px;
+}
+
+.needle.second {
+   background-color: #ac1e0e;
+   transform: translate(-50%, -100%) rotate(0deg);
+   height: 100px;
+}
+
+.center-point {
+   background-color: #ac1e0e;
+   position: absolute;
+   top: 50%;
+   left: 50%;
+   height: 12px;
+   width: 12px;
+   transform: translate(-50%, -50%);
+   border-radius: 50%;
+}
+
+.center-point::after {
+   content: '';
+   background-color: var(--primary-color);
+   position: absolute;
+   top: 50%;
+   left: 50%;
+   height: 5px;
+   width: 5px;
+   transform: translate(-50%, -50%);
+   border-radius: 50%;
+}
+
+.time {
+   font-size: 60px;
+}
+
+.date {
+   color: #aaa;
+   font-size: 14px;
+   letter-spacing: 0.3px;
+   text-transform: uppercase;
+   display: flex;
+   align-items: flex-start;
+   justify-content: center;
+
+}
+
+.circle-group {
+   margin-left: 14px;
+}
+
+.circle {
+   position: relative;
+   background-color: var(--primary-color);
+   color: var(--secondary-color);
+   height: 14px;
+   width: 14px;
+   display: inline-flex;
+   align-items: center;
+   justify-content: center;
+   line-height: 18px;
+   font-size: 12px;
+   transform: rotate(45deg);
+}
+
+.circle::before {
+   content: '';
+   position: absolute;
+   background-color: var(--primary-color);
+   color: var(--secondary-color);
+   border-radius: 50%;
+   height: 14px;
+   width: 14px;
+   display: inline-flex;
+   transform: translateX(-50%);
+   
+}
+
+.circle::after {
+   content: '';
+   position: absolute;
+   background-color: var(--primary-color);
+   color: var(--secondary-color);
+   border-radius: 50%;
+   height: 14px;
+   width: 14px;
+   display: inline-flex;
+   transform: translateY(-50%);
+}
+
+.circle span {
+   position: absolute;
+   transform: translate(-10%, -10%) rotate(-45deg); 
+   z-index: 1;
+}
